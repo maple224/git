@@ -69,3 +69,21 @@ for i in range(scale):
             if minpath > dist[j]:
                 index = j
                 minpath = dist[j]
+
+    if flag == 0:
+        break
+    for k in range(scale): # 找到最近的节点后根据他更新他相邻的节点距初始节点的距离
+        if dist[k] > dist[index] + data[index][k]:
+            dist[k] = dist[index] + data[index][k]
+            path[k] = index
+    sett[index] = 1
+print(dist[scale - 1])    
+
+index_find = scale - 1
+list_ans = [scale - 1]
+while True:
+    list_ans.append(path[index_find])
+    index_find = path[index_find]
+    if(index_find == 0):
+        break
+print(list_ans[::-1])
