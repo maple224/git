@@ -87,3 +87,4 @@ while True:
     if(index_find == 0):
         break
 print(list_ans[::-1])
+11
