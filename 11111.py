@@ -43,3 +43,29 @@ def swap(m, n, data):
             elif j == n:
                 data_swap[i][j] = data[i][m]
     return data_swap
+
+
+   data = swap(1, 16, data)#根据需要计算的节点更改数据
+
+dist = [0]*scale
+path = [0]*scale
+sett = [0]*scale
+
+for i in range(scale):
+    dist[i] = data[0][i]
+    if dist[i] == 0:
+        dist[i] = 9999
+        path[i] = -1
+sett[0] = 1  
+#初始化各个表格
+
+for i in range(scale):
+    minpath = 9999
+    index = 0 #用来找到目前未计算的节点中距离初始节点最近的节点
+    flag = 0
+    for j in range(scale):
+        if sett[j] == 0:
+            flag = 1
+            if minpath > dist[j]:
+                index = j
+                minpath = dist[j]
